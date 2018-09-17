@@ -23,5 +23,6 @@
     <string name="cancel">Cancel</string>
     <string name="todo">TODO</string>
     <string name="google">Google</string>
+    <string name="send">Send</string>
 
 </resources>

@@ -12,6 +12,9 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final int REQUEST_ID = 1;
+    private static final int EDIT_REQUEST_CODE = 0;
+
     TextView email;
     TextView name;
     TextView phoneNumber;
@@ -19,21 +22,18 @@ public class MainActivity extends AppCompatActivity {
     Button editButton;
     Button sendButton;
 
-    private static final int REQUEST_ID = 1;
-    private static final int EDIT_REQUEST_CODE = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        email = findViewById(R.id.email);
-        name = findViewById(R.id.name);
-        phoneNumber = findViewById(R.id.phoneNumber);
+        email = findViewById(R.id.tv_email);
+        name = findViewById(R.id.tv_name);
+        phoneNumber = findViewById(R.id.tv_phoneNumber);
 
-        profilePic = findViewById(R.id.profilePic);
-        editButton = findViewById(R.id.buttonEdit);
-        sendButton = findViewById(R.id.sendButton);
+        profilePic = findViewById(R.id.im_profile_edit);
+        editButton = findViewById(R.id.btn_edit);
+        sendButton = findViewById(R.id.btn_send);
 
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override

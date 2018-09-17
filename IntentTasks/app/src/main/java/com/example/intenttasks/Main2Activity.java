@@ -1,6 +1,5 @@
 package com.example.intenttasks;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,12 +24,12 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        emailEdit = findViewById(R.id.emailEdit);
-        nameEdit = findViewById(R.id.nameEdit);
-        phoneNumberEdit = findViewById(R.id.phoneNumberEdit);
-        profilePicEdit = findViewById(R.id.profilePic);
-        confirmButton = findViewById(R.id.confirmButton);
-        cancelButton = findViewById(R.id.cancelButton);
+        emailEdit = findViewById(R.id.et_email_edit);
+        nameEdit = findViewById(R.id.et_name_edit);
+        phoneNumberEdit = findViewById(R.id.et_phone_number_edit);
+        profilePicEdit = findViewById(R.id.im_profile_edit);
+        confirmButton = findViewById(R.id.btn_confirm);
+        cancelButton = findViewById(R.id.btn_cancel);
 
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
