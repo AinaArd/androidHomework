@@ -1,6 +1,7 @@
 package com.example.intenttasks;
 
 import android.content.Intent;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_ID = 1;
     private static final int EDIT_REQUEST_CODE = 0;
+    private static final int REQUEST_IMAGE_CAPTURE = 1;
 
     TextView email;
     TextView name;
@@ -21,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     ImageView profilePic;
     Button editButton;
     Button sendButton;
+    Button contactsButton;
+    Button openCameraButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         profilePic = findViewById(R.id.im_profile_edit);
         editButton = findViewById(R.id.btn_edit);
         sendButton = findViewById(R.id.btn_send);
+        contactsButton = findViewById(R.id.btn_calendar);
+        openCameraButton = findViewById(R.id.btn_camera);
 
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,14 +56,18 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentSend = new Intent(Intent.ACTION_SEND);
                 intentSend.putExtra(Intent.EXTRA_TEXT, send);
                 intentSend.setType("text/plain");
-
-                if (intentSend.resolveActivity(getPackageManager()) != null) {
-                    startActivityForResult(intentSend, REQUEST_ID);
-                }
-
             }
         });
 
+        openCameraButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
+                }
+            }
+        });
     }
 
     @Override
@@ -87,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             } else if (resultCode == RESULT_CANCELED) {
                 Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show();
             }
+        } else if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
         }
-
     }
 }

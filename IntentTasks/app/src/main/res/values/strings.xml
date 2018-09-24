@@ -24,5 +24,7 @@
     <string name="todo">TODO</string>
     <string name="google">Google</string>
     <string name="send">Send</string>
+    <string name="calendar">Calendar</string>
+    <string name="camera">Camera</string>
 
 </resources>

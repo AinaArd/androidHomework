@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="btn_send" type="id">btn_send</item>
+    <item name="btn_calendar" type="id">btn_calendar</item>
+    <item name="tv_email" type="id" />
+    <item name="tv_name" type="id" />
+    <item name="tv_phoneNumber" type="id" />
+    <item name="btn_camera" type="id" />
+</resources>
