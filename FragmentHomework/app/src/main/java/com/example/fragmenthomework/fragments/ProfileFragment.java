@@ -1,6 +1,7 @@
 package com.example.fragmenthomework.fragments;
 
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,7 +19,8 @@ import com.example.fragmenthomework.R;
  */
 public class ProfileFragment extends Fragment implements Listener {
 
-    View v;
+    TextView textViewLogin;
+    TextView textViewEmail;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -30,21 +32,18 @@ public class ProfileFragment extends Fragment implements Listener {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_profile, container, false);
         Button editButton = v.findViewById(R.id.btn_edit);
+        textViewLogin = v.findViewById(R.id.tv_login);
+        textViewEmail = v.findViewById(R.id.tv_email);
 
-        editButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                EditDialog editDialog = new EditDialog();
-//                editDialog.show(getFragmentManager(),"dialog");
-            }
+        editButton.setOnClickListener(v1 -> {
+            EditDialog editDialog = new EditDialog();
+            editDialog.show(getChildFragmentManager(), "dialog");
         });
         return v;
     }
 
     @Override
     public void mListener(String login, String email) {
-        TextView textViewLogin = v.findViewById(R.id.tv_login);
-        TextView textViewEmail = v.findViewById(R.id.tv_email);
         textViewLogin.setText(login);
         textViewEmail.setText(email);
     }
