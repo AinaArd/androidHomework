@@ -16,4 +16,6 @@
     <string name="edit">Edit</string>
     <string name="login">Login</string>
     <string name="email">Email</string>
+    <string name="default_login">Here must be your login</string>
+    <string name="default_email">Here must be your email</string>
 </resources>

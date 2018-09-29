@@ -1,6 +1,7 @@
 package com.example.fragmenthomework;
 
 import android.app.AlertDialog;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -18,6 +19,7 @@ public class EditDialog extends DialogFragment {
     EditText editTextLogin;
     EditText editTextEmail;
 
+    @NonNull
     public android.app.Dialog onCreateDialog(@Nullable Bundle saveInstanceState) {
         super.onCreateDialog(saveInstanceState);
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.dialog_edit, null);
@@ -26,22 +28,14 @@ public class EditDialog extends DialogFragment {
 
         AlertDialog.Builder adb = new AlertDialog.Builder(getActivity());
         adb.setTitle("fill").setView(view)
-                .setPositiveButton("save", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String login = editTextLogin.getText().toString();
-                        String eMail = editTextEmail.getText().toString();
-                        myListener.mListener(login, eMail);
+                .setPositiveButton("save", (dialog, which) -> {
+                    String login = editTextLogin.getText().toString();
+                    String eMail = editTextEmail.getText().toString();
+                    myListener.mListener(login, eMail);
 
-                    }
                 })
 
-                .setNegativeButton("dismiss", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dismiss();
-                    }
-                });
+                .setNegativeButton("dismiss", (dialog, which) -> dismiss());
         return adb.show();
     }
 
