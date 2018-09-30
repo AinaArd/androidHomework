@@ -15,8 +15,6 @@
         <item
             android:id="@+id/fragment_profile"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/profilefragment" />
-
+            android:title="@string/profile_fragment" />
     </group>
-
 </menu>

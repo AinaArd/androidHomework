@@ -12,7 +12,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.fragmenthomework.fragments.GalleryFragment;
@@ -37,10 +36,7 @@ public class MainActivity extends AppCompatActivity
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
         setSupportActionBar(toolbar);
 
-        photoFragment = new PhotoFragment();
-        galleryFragment = new GalleryFragment();
-        profileFragment = new ProfileFragment();
-
+        initFragments();
 
         drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -53,6 +49,7 @@ public class MainActivity extends AppCompatActivity
         tvHeaderLogin = headerView.findViewById(R.id.tv_login_in_heager);
         tvHeaderEmail = headerView.findViewById(R.id.tv_email_in_header);
         navigationView.setNavigationItemSelectedListener(this);
+        setFragment(photoFragment);
     }
 
     @Override
@@ -111,7 +108,15 @@ public class MainActivity extends AppCompatActivity
 
     private void setFragment(Fragment fragment) {
         android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.linear_layout, fragment);
+        fragmentTransaction.replace(R.id.container_main, fragment);
         fragmentTransaction.commit();
     }
+
+    private void initFragments(){
+        photoFragment = new PhotoFragment();
+        galleryFragment = new GalleryFragment();
+        profileFragment = new ProfileFragment();
+    }
+
+    private void initToolbar() {}
 }
