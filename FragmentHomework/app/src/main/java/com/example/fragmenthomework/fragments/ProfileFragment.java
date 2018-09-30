@@ -8,16 +8,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import com.example.fragmenthomework.EditDialog;
-import com.example.fragmenthomework.Listener;
+import com.example.fragmenthomework.DataTransmitter;
 import com.example.fragmenthomework.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
-public class ProfileFragment extends Fragment implements Listener {
+public class ProfileFragment extends Fragment implements DataTransmitter {
 
-    TextView textViewLogin;
-    TextView textViewEmail;
+    TextView tvLogin;
+    TextView tvEmail;
     private String login = "Here must be your login";
     private String email = "Here must be your email";
 
@@ -30,11 +27,11 @@ public class ProfileFragment extends Fragment implements Listener {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_profile, container, false);
         Button editButton = v.findViewById(R.id.btn_edit);
-        textViewLogin = v.findViewById(R.id.tv_login);
-        textViewEmail = v.findViewById(R.id.tv_email);
+        tvLogin = v.findViewById(R.id.tv_login);
+        tvEmail = v.findViewById(R.id.tv_email);
 
-        textViewLogin.setText(login);
-        textViewEmail.setText(email);
+        tvLogin.setText(login);
+        tvEmail.setText(email);
 
         editButton.setOnClickListener(v1 -> {
             EditDialog editDialog = new EditDialog();
@@ -44,13 +41,13 @@ public class ProfileFragment extends Fragment implements Listener {
     }
 
     public void saveData(String login, String email) {
-        textViewLogin.setText(login);
-        textViewEmail.setText(email);
+        tvLogin.setText(login);
+        tvEmail.setText(email);
     }
 
     @Override
-    public void mListener(String login, String email) {
-        textViewLogin.setText(login);
-        textViewEmail.setText(email);
+    public void transmitter(String login, String email) {
+        tvLogin.setText(login);
+        tvEmail.setText(email);
     }
 }

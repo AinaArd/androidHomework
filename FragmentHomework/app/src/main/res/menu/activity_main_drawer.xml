@@ -7,11 +7,11 @@
         <item
             android:id="@+id/fragment_camera"
             android:icon="@drawable/ic_menu_camera"
-            android:title="@string/photofragment" />
+            android:title="@string/photo_fragment" />
         <item
             android:id="@+id/fragment_gallery"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/galleryfragment" />
+            android:title="@string/gallery_fragment" />
         <item
             android:id="@+id/fragment_profile"
             android:icon="@drawable/ic_menu_slideshow"

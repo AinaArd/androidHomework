@@ -7,8 +7,8 @@
     android:gravity="center">
 
     <TextView
-        android:id="@+id/photo_frgm_name"
+        android:id="@+id/tv_photo_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/photofragment" />
+        android:text="@string/photo_fragment" />
 </RelativeLayout>

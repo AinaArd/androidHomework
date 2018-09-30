@@ -1,6 +1,7 @@
 package com.example.fragmenthomework;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -19,14 +20,14 @@ import com.example.fragmenthomework.fragments.PhotoFragment;
 import com.example.fragmenthomework.fragments.ProfileFragment;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, Listener {
+        implements NavigationView.OnNavigationItemSelectedListener, DataTransmitter {
 
-    LinearLayout linearLayout;
     PhotoFragment photoFragment;
     GalleryFragment galleryFragment;
     ProfileFragment profileFragment;
-    TextView tvLogin;
-    TextView tvEmail;
+    TextView tvHeaderLogin;
+    TextView tvHeaderEmail;
+    DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +37,12 @@ public class MainActivity extends AppCompatActivity
         toolbar.setNavigationOnClickListener(v -> onBackPressed());
         setSupportActionBar(toolbar);
 
-        linearLayout = findViewById(R.id.linear_layout);
         photoFragment = new PhotoFragment();
         galleryFragment = new GalleryFragment();
         profileFragment = new ProfileFragment();
 
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -50,14 +50,13 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
-        tvLogin = headerView.findViewById(R.id.tv_login_in_heager);
-        tvEmail = headerView.findViewById(R.id.tv_email_in_header);
+        tvHeaderLogin = headerView.findViewById(R.id.tv_login_in_heager);
+        tvHeaderEmail = headerView.findViewById(R.id.tv_email_in_header);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -84,7 +83,7 @@ public class MainActivity extends AppCompatActivity
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
 
         if (id == R.id.fragment_camera) {
@@ -104,12 +103,11 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void mListener(String login, String email) {
+    public void transmitter(String login, String email) {
         profileFragment.saveData(login, email);
-        tvLogin.setText(login);
-        tvEmail.setText(email);
+        tvHeaderLogin.setText(login);
+        tvHeaderEmail.setText(email);
     }
-
 
     private void setFragment(Fragment fragment) {
         android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

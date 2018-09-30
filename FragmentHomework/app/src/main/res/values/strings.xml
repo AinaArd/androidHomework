@@ -6,13 +6,11 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-    <string name="photofragment">PhotoFragment</string>
-    <string name="galleryfragment">GalleryFragment</string>
+    <string name="photo_fragment">PhotoFragment</string>
+    <string name="gallery_fragment">GalleryFragment</string>
     <string name="profilefragment">ProfileFragment</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="textview">TextView</string>
+    <string name="Login">TextView</string>
     <string name="edit">Edit</string>
     <string name="login">Login</string>
     <string name="email">Email</string>
