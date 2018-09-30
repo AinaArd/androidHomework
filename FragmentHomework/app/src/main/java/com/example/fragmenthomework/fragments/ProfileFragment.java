@@ -18,10 +18,6 @@ public class ProfileFragment extends Fragment implements DataTransmitter {
     private String login = "Here must be your login";
     private String email = "Here must be your email";
 
-    public ProfileFragment() {
-        // Required empty public constructor
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

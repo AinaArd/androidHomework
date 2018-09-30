@@ -11,10 +11,6 @@ import com.example.fragmenthomework.R;
 
 public class PhotoFragment extends Fragment {
 
-    public PhotoFragment() {
-        // Required empty public constructor
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
