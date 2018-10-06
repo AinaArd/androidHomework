@@ -12,7 +12,6 @@ import com.example.fragmenthomework.DataTransmitter;
 import com.example.fragmenthomework.R;
 
 public class ProfileFragment extends Fragment implements DataTransmitter {
-
     TextView tvLogin;
     TextView tvEmail;
     private String login = "Here must be your login";
