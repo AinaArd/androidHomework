@@ -34,8 +34,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int id) {
         holder.bindView(listOfUsers.get(id));
-
-
     }
 
     @Override
