@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">FragmentHomework</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="photo_fragment">PhotoFragment</string>
+    <string name="gallery_fragment">GalleryFragment</string>
+    <string name="profile_fragment">ProfileFragment</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Login">TextView</string>
+    <string name="edit">Edit</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="default_login">Here must be your login</string>
+    <string name="default_email">Here must be your email</string>
+</resources>
