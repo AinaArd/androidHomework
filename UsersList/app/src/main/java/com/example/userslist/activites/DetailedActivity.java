@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.example.userslist.R;
 
-public class Main2Activity extends AppCompatActivity implements MyCallback {
+public class DetailedActivity extends AppCompatActivity implements MyCallback {
     TextView description;
 
     @Override

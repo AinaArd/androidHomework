@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    tools:context=".activites.Main2Activity">
+    tools:context=".activites.DetailedActivity">
 
     <TextView
         android:id="@+id/tv_descr"

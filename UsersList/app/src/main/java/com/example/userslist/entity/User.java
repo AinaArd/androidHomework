@@ -1,15 +1,19 @@
 package com.example.userslist.entity;
 
+import android.media.Image;
+
 /**
  * Created by ${Aina} on 04.10.2018.
  */
 public class User {
     private String name;
-    private String context;
+    private String description;
+    private int userPic;
 
-    public User(String name, String context) {
+    public User(String name, String description, int userPic) {
         this.name = name;
-        this.context = context;
+        this.description = description;
+        this.userPic = userPic;
     }
 
     public String getName() {
@@ -20,7 +24,15 @@ public class User {
         this.name = name;
     }
 
-    public String getContext() {
-        return context;
+    public String getDescription() {
+        return description;
+    }
+
+    public int getUserPic() {
+        return userPic;
+    }
+
+    public void setUserPic(int userPic) {
+        this.userPic = userPic;
     }
 }

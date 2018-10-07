@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements MyCallback {
 
     @Override
     public void callBack(String info) {
-        Intent intent = new Intent(this, Main2Activity.class);
+        Intent intent = new Intent(this, DetailedActivity.class);
         intent.putExtra("info", info);
         startActivity(intent);
     }
