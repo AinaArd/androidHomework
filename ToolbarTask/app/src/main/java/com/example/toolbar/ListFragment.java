@@ -14,7 +14,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ListFragment extends Fragment {
@@ -32,14 +34,12 @@ public class ListFragment extends Fragment {
         setHasOptionsMenu(true);
 
         RecyclerView usersRecycleView = view.findViewById(R.id.recycleView);
-        usersRecycleView.setLayoutManager(new LinearLayoutManager(getContext()));
+        usersRecycleView.setLayoutManager(new LinearLayoutManager(view.getContext()));
 
-        data = new Data();
-        List<User> users = (List<User>) data.getUsers();
-        diff = new UserListDiffCallback(users, users);
+        userAdapter.submitList(data.getUsers());
+        diff = new UserListDiffCallback();
         userAdapter = new UserAdapter(diff);
         usersRecycleView.setAdapter(userAdapter);
-        loadUsers();
         return view;
     }
 
@@ -50,40 +50,29 @@ public class ListFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        List<User> usersSorted = data.getUsers();
         switch (item.getItemId()) {
             case R.id.item_sort_by_age:
-                Toast.makeText(getContext(), "pressed list", Toast.LENGTH_SHORT).show();
+                Comparator<User> compAge = new Comparator<User>() {
+                    @Override
+                    public int compare(User o1, User o2) {
+                        return o1.getAge() - o2.getAge();
+                    }
+                };
+                Collections.sort(usersSorted, compAge);
+                userAdapter.submitList(usersSorted);
+                Toast.makeText(getContext(), "pressed 1", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.item_sort_in_alf:
-                Toast.makeText(getContext(), "pressed pager", Toast.LENGTH_SHORT).show();
+                Comparator<User> compAlf = new Comparator<User>() {
+                    public int compare(User o1, User o2) {
+                        return o1.getName().charAt(0) - o2.getName().charAt(0);
+                    }
+                };
+                Collections.sort(usersSorted, compAlf);
+                Toast.makeText(getContext(), "pressed 2", Toast.LENGTH_SHORT).show();
                 break;
         }
         return true;
-    }
-
-    /*private void initRecyclerView() {
-        RecyclerView usersRecycleView = findViewById(R.id.recycleView);
-        usersRecycleView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        data = new Data();
-        List<User> users = (List<User>) data.getUsers();
-        List<User> users2 = (List<User>) data.getOtherUsers();
-
-        // TODO: sorting
-
-        diff = new UserListDiffCallback(users, users2);
-        userAdapter = new UserAdapter(diff);
-        usersRecycleView.setAdapter(userAdapter);
-    }*/
-
-    private void loadUsers() {
-        List<User> users = new ArrayList<>();
-        users.add(new User("Aina", "Likes coffee, suicide jokes, tasty food and Marvel", 19));
-        users.add(new User("Liya", "Does IT homework at night", 19));
-        users.add(new User("Aliya", "Party girl from DD", 20));
-        users.add(new User("Kama", "Makes origami", 43));
-        users.add(new User("Lesya", "Loves her dog", 8));
-        users.add(new User("Leyla", "Likes Marvel", 54));
-        userAdapter.setUsers(users);
     }
 }

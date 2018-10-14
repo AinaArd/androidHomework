@@ -13,15 +13,6 @@ public class MainActivity extends AppCompatActivity {
     HomeFragment homeFragment;
     ListFragment listFragment;
     PagerFragment pagerFragment;
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.navigation_list) {
-            Toast.makeText(getApplicationContext(), "pressed list", Toast.LENGTH_LONG).show();
-        } else if (item.getItemId() == R.id.navigation_pager) {
-            Toast.makeText(getApplicationContext(), "pressed pager", Toast.LENGTH_LONG).show();
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {

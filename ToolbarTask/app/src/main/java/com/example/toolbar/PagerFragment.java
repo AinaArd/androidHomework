@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PagerFragment extends Fragment {
-    static final int PAGE_COUNT = 3;
     TabLayout tabLayout;
     ViewPager viewPager;
     PagerAdapter pagerAdapter;
@@ -27,9 +26,9 @@ public class PagerFragment extends Fragment {
         View view = inflater.inflate(R.layout.pager, null);
         viewPager = view.findViewById(R.id.pager);
         pagerAdapter = new MyFragmentPagerAdapter(getChildFragmentManager());
-        ((MyFragmentPagerAdapter) pagerAdapter).addFragment(new PageFragment(), "fragment 1");
-        ((MyFragmentPagerAdapter) pagerAdapter).addFragment(new PageFragment(), "fragment 2");
-        ((MyFragmentPagerAdapter) pagerAdapter).addFragment(new PageFragment(), "fragment 3");
+        ((MyFragmentPagerAdapter) pagerAdapter).addFragment(PageFragment.newInstance(1));
+        ((MyFragmentPagerAdapter) pagerAdapter).addFragment(PageFragment.newInstance(2));
+        ((MyFragmentPagerAdapter) pagerAdapter).addFragment(PageFragment.newInstance(3));
         viewPager.setAdapter(pagerAdapter);
         tabLayout = view.findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(viewPager);
@@ -38,7 +37,6 @@ public class PagerFragment extends Fragment {
 
     private class MyFragmentPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
 
         public MyFragmentPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -46,23 +44,22 @@ public class PagerFragment extends Fragment {
 
         @Override
         public Fragment getItem(int position) {
-            return PageFragment.newInstance(position);
+            return mFragmentList.get(position);
         }
 
         @Override
         public int getCount() {
-            return PAGE_COUNT;
+            return mFragmentList.size();
         }
 
         @Nullable
         @Override
         public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
+            return "Fragment " + position;
         }
 
-        public void addFragment(Fragment fragment, String title) {
+        public void addFragment(Fragment fragment) {
             mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
         }
     }
 }
