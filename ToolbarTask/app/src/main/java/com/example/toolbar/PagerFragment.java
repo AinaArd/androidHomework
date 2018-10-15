@@ -55,7 +55,7 @@ public class PagerFragment extends Fragment {
         @Nullable
         @Override
         public CharSequence getPageTitle(int position) {
-            return "Fragment " + position;
+            return "Fragment " + (position + 1);
         }
 
         public void addFragment(Fragment fragment) {
