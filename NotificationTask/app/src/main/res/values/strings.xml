@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Notification</string>
+    <string name="button">Button</string>
+    <string name="set_alarm">Set alarm</string>
+    <string name="cancel">Cancel</string>
+    <string name="textview">TextView</string>
+    <string name="congratulation">Congratulation!</string>
+    <string name="_00">00</string>
+</resources>
