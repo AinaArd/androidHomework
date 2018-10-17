@@ -60,7 +60,7 @@ public class ListFragment extends Fragment {
                 };
                 Collections.sort(usersSorted, compAge);
                 userAdapter.submitList(usersSorted);
-                Toast.makeText(getContext(), "pressed 1", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "sorted by age", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.item_sort_in_alf:
                 Comparator<User> compAlf = new Comparator<User>() {
@@ -70,7 +70,7 @@ public class ListFragment extends Fragment {
                 };
                 Collections.sort(usersSorted, compAlf);
                 userAdapter.submitList(usersSorted);
-                Toast.makeText(getContext(), "pressed 2", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "sorted in alf order", Toast.LENGTH_SHORT).show();
                 break;
         }
         return true;
