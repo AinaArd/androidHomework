@@ -21,7 +21,6 @@ import java.util.List;
 
 public class ListFragment extends Fragment {
     UserAdapter userAdapter;
-    Data data;
     UserListDiffCallback diff;
     Toolbar toolbar;
 
@@ -36,9 +35,9 @@ public class ListFragment extends Fragment {
         RecyclerView usersRecycleView = view.findViewById(R.id.recycleView);
         usersRecycleView.setLayoutManager(new LinearLayoutManager(view.getContext()));
 
-        userAdapter.submitList(data.getUsers());
         diff = new UserListDiffCallback();
         userAdapter = new UserAdapter(diff);
+        userAdapter.submitList(getUsers());
         usersRecycleView.setAdapter(userAdapter);
         return view;
     }
@@ -50,7 +49,7 @@ public class ListFragment extends Fragment {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        List<User> usersSorted = data.getUsers();
+        List<User> usersSorted = getUsers();
         switch (item.getItemId()) {
             case R.id.item_sort_by_age:
                 Comparator<User> compAge = new Comparator<User>() {
@@ -61,7 +60,7 @@ public class ListFragment extends Fragment {
                 };
                 Collections.sort(usersSorted, compAge);
                 userAdapter.submitList(usersSorted);
-                Toast.makeText(getContext(), "pressed 1", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "sorted by age", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.item_sort_in_alf:
                 Comparator<User> compAlf = new Comparator<User>() {
@@ -70,9 +69,21 @@ public class ListFragment extends Fragment {
                     }
                 };
                 Collections.sort(usersSorted, compAlf);
-                Toast.makeText(getContext(), "pressed 2", Toast.LENGTH_SHORT).show();
+                userAdapter.submitList(usersSorted);
+                Toast.makeText(getContext(), "sorted in alf order", Toast.LENGTH_SHORT).show();
                 break;
         }
         return true;
+    }
+
+    public List<User> getUsers() {
+        return Arrays.asList(new User(1, "Aina", "Likes coffee, suicide jokes, tasty food and Marvel", 19),
+                new User(2, "Liya", "Does IT homework at night", 19),
+                new User(3, "Aliya", "Party girl from DD", 20),
+                new User(4,"Kama", "Makes origami", 43),
+                new User(5, "Lesya", "Loves her dog", 8),
+                new User(6, "Elina", "Wants sushi", 24),
+                new User(7, "Leyla", "Likes Marvel", 54)
+        );
     }
 }

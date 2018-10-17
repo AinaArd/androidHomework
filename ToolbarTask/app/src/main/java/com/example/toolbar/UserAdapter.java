@@ -10,6 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by ${Aina} on 04.10.2018.
  */
@@ -46,5 +49,10 @@ public class UserAdapter extends ListAdapter<User, UserAdapter.UserViewHolder> {
             userInfo = itemView.findViewById(R.id.tv_info);
             userAge = itemView.findViewById(R.id.tv_age);
         }
+    }
+
+    @Override
+    public void submitList(List<User> list) {
+        super.submitList(list != null ? new ArrayList<>(list) : null);
     }
 }

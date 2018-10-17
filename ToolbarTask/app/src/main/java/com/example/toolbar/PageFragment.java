@@ -8,12 +8,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class PageFragment extends Fragment {
+
+    private static String number = "num";
     private int pageNumber;
 
     public static PageFragment newInstance(int page) {
         PageFragment fragment = new PageFragment();
         Bundle args = new Bundle();
-        args.putInt("num", page);
+        args.putInt(number, page);
         fragment.setArguments(args);
         return fragment;
     }
@@ -25,7 +27,7 @@ public class PageFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         String arg = String.valueOf(getArguments());
-        pageNumber = getArguments() != null ? getArguments().getInt("num") : 1;
+        pageNumber = getArguments() != null ? getArguments().getInt(number) : 1;
     }
 
     @Override
@@ -33,7 +35,7 @@ public class PageFragment extends Fragment {
                              Bundle savedInstanceState) {
         View result = inflater.inflate(R.layout.fragment_page, container, false);
         TextView pageHeader = result.findViewById(R.id.pager_title);
-        pageHeader.setText("Fragment " + (pageNumber + 1));
+        pageHeader.setText("Fragment " + pageNumber);
         return result;
     }
 }
