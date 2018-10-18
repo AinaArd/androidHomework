@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intentTimer = new Intent(this, Alert.class);
         pendingIntent = PendingIntent.getBroadcast(this, 555, intentTimer, PendingIntent.FLAG_CANCEL_CURRENT);
-        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, System.currentTimeMillis() + timeOnTimer, pendingIntent);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + timeOnTimer, pendingIntent);
     }
 
     private void startTimer(final long timeOnTimer) {
