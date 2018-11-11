@@ -5,4 +5,8 @@
     <string name="play">Play</string>
     <string name="textview">TextView</string>
     <string name="choose_theme">Choose theme</string>
+    <string name="third">Third</string>
+    <string name="second">Second</string>
+    <string name="first">First</string>
+    <string name="change_theme">Change theme</string>
 </resources>

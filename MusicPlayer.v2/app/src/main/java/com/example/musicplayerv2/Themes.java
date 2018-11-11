@@ -13,12 +13,16 @@ public class Themes {
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
         String thisTheme = sp.getString("this", "current");
         int themeId = R.style.AppTheme;
-        if (thisTheme.equals("1")) {
-            themeId = R.style.first;
-        } else if (thisTheme.equals("2")) {
-            themeId = R.style.second;
-        } else if (thisTheme.equals("3")) {
-            themeId = R.style.third;
+        switch (thisTheme) {
+            case "First":
+                themeId = R.style.first;
+                break;
+            case "Second":
+                themeId = R.style.second;
+                break;
+            case "Third":
+                themeId = R.style.third;
+                break;
         }
         return themeId;
     }

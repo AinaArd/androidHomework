@@ -1,10 +1,12 @@
 package com.example.musicplayerv2;
 
+import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +26,7 @@ public class PlayActivity extends AppCompatActivity implements Callback, SharedP
     Button prev;
     Button next;
     Button play;
+    Button change;
     TextView nameOfSong;
     TextView artist;
     int position;
@@ -44,6 +47,7 @@ public class PlayActivity extends AppCompatActivity implements Callback, SharedP
         prev = findViewById(R.id.btn_prev);
         next = findViewById(R.id.btn_next);
         play = findViewById(R.id.btn_play);
+        change = findViewById(R.id.btn_settings);
         nameOfSong = findViewById(R.id.tv_name);
         artist = findViewById(R.id.tv_artist);
         position = getIntent().getIntExtra("position", 0);
@@ -73,12 +77,37 @@ public class PlayActivity extends AppCompatActivity implements Callback, SharedP
             }
         });
         updatePlayingSong();
-        SharedPreferences prefs =
-                PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        prefs.registerOnSharedPreferenceChangeListener(this);
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        String currentTheme = sharedPref.getString("current_theme", "First");
+        int themeId;
+        switch (currentTheme) {
+            case "First":
+                themeId = R.style.first;
+                break;
+            case "Second":
+                themeId = R.style.second;
+                break;
+            case "Third":
+                themeId = R.style.third;
+                break;
+            default:
+                themeId = R.style.first;
+        }
+        setTheme(themeId);
+
+
         Intent intent = new Intent(this, MusicService.class);
         startService(intent);
         bindService(intent, this, Context.BIND_AUTO_CREATE);
+
+        change.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ThemeActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -86,14 +115,6 @@ public class PlayActivity extends AppCompatActivity implements Callback, SharedP
         mediaPlayer.stop();
         mediaPlayer = null;
         super.onDestroy();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuItem menu1 = menu.add(0, 1, 0, "Preferences");
-        Intent intent = new Intent(this, ThemeActivity.class);
-        menu1.setIntent(intent);
-        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -108,8 +129,9 @@ public class PlayActivity extends AppCompatActivity implements Callback, SharedP
         unbindService(this);
     }
 
+    @SuppressLint("ResourceType")
     @Override
-    public void callback(int id) {
+    public void exactSong(int id) {
         position = id;
         updatePlayingSong();
     }

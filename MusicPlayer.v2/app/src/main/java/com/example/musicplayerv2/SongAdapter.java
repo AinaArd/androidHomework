@@ -31,7 +31,7 @@ public class SongAdapter extends ListAdapter<Song, SongAdapter.SongHolder> {
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callback.callback(viewHolder.id);
+                callback.exactSong(viewHolder.id);
             }
         });
         viewHolder.tvName.setText(getItem(position).getName());
@@ -47,7 +47,6 @@ public class SongAdapter extends ListAdapter<Song, SongAdapter.SongHolder> {
         SongHolder(View itemView) {
             super(itemView);
             view = itemView;
-
             tvName = view.findViewById(R.id.tv_name);
             tvArtist = view.findViewById(R.id.tv_artist);
 

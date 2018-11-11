@@ -18,4 +18,7 @@
         <item name="android:background">#FFEB3B</item>
     </style>
 
+    <style name="button" parent="AppTheme">
+        <item name="android:background">#B2DFDB</item>
+    </style>
 </resources>

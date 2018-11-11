@@ -33,24 +33,16 @@ public class MainActivity extends AppCompatActivity implements Callback, SharedP
         recyclerView.setAdapter(songAdapter);
         songAdapter.submitList(getSongs());
 
-        SharedPreferences prefs =
+        SharedPreferences preferences =
                 PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        prefs.registerOnSharedPreferenceChangeListener(this);
+        preferences.registerOnSharedPreferenceChangeListener(this);
     }
 
     @Override
-    public void callback(int position) {
+    public void exactSong(int position) {
         Intent intent = new Intent(this, PlayActivity.class);
         intent.putExtra("position", position);
         startActivity(intent);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuItem menu1 = menu.add(0, 1, 0, "Preferences");
-        Intent intent = new Intent(this, ThemeActivity.class);
-        menu1.setIntent(intent);
-        return super.onCreateOptionsMenu(menu);
     }
 
     @Override

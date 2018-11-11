@@ -1,7 +1,5 @@
 package com.example.musicplayerv2;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -24,7 +22,8 @@ public class MusicService extends Service {
 
     @Override
     public void onDestroy() {
-        stopForeground(true);
+        super.onDestroy();
+        mediaPlayer.release();
     }
 
     public void initMusicPlayer(Callback callback, ArrayList<Song> songs, int position) {
@@ -67,14 +66,16 @@ public class MusicService extends Service {
     public void playNext() {
         position++;
         position = position == songs.size() ? 0 : position;
-        callback.callback(position);
+        callback.exactSong(position);
+        mediaPlayer.release();
         start();
     }
 
     public void playPrev() {
         position--;
         position = position == -1 ? songs.size() - 1 : position;
-        callback.callback(position);
+        callback.exactSong(position);
+        mediaPlayer.release();
         start();
     }
 
