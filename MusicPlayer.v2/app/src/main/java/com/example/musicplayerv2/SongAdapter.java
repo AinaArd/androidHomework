@@ -49,7 +49,6 @@ public class SongAdapter extends ListAdapter<Song, SongAdapter.SongHolder> {
             view = itemView;
             tvName = view.findViewById(R.id.tv_name);
             tvArtist = view.findViewById(R.id.tv_artist);
-
         }
     }
 }

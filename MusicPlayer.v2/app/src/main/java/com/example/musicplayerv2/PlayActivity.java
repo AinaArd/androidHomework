@@ -6,13 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -30,7 +27,7 @@ public class PlayActivity extends AppCompatActivity implements Callback, SharedP
     TextView nameOfSong;
     TextView artist;
     int position;
-    MusicService mediaPlayer;
+    MusicService musicService;
     ArrayList<Song> songs = MainActivity.getSongs();
 
     @Override
@@ -57,7 +54,7 @@ public class PlayActivity extends AppCompatActivity implements Callback, SharedP
             public void onClick(View v) {
                 position--;
                 position = position == -1 ? songs.size() - 1 : position;
-                mediaPlayer.playPrev();
+                musicService.playPrev();
             }
         });
 
@@ -66,36 +63,21 @@ public class PlayActivity extends AppCompatActivity implements Callback, SharedP
             public void onClick(View v) {
                 position++;
                 position = position == songs.size() ? 0 : position;
-                mediaPlayer.playNext();
+                musicService.playNext();
             }
         });
 
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mediaPlayer.play();
+                musicService.play();
             }
         });
         updatePlayingSong();
 
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        String currentTheme = sharedPref.getString("current_theme", "First");
-        int themeId;
-        switch (currentTheme) {
-            case "First":
-                themeId = R.style.first;
-                break;
-            case "Second":
-                themeId = R.style.second;
-                break;
-            case "Third":
-                themeId = R.style.third;
-                break;
-            default:
-                themeId = R.style.first;
-        }
-        setTheme(themeId);
-
+        SharedPreferences preferences =
+                PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        preferences.registerOnSharedPreferenceChangeListener(this);
 
         Intent intent = new Intent(this, MusicService.class);
         startService(intent);
@@ -112,16 +94,16 @@ public class PlayActivity extends AppCompatActivity implements Callback, SharedP
 
     @Override
     protected void onDestroy() {
-        mediaPlayer.stop();
-        mediaPlayer = null;
+        musicService.stop();
+        musicService = null;
         super.onDestroy();
     }
 
     @Override
     public void onServiceConnected(ComponentName name, IBinder service) {
         MusicService.MusicBinder binder = (MusicService.MusicBinder) service;
-        mediaPlayer = binder.getService();
-        mediaPlayer.initMusicPlayer(this, songs, position);
+        musicService = binder.getService();
+        musicService.initMusicPlayer(this, songs, position);
     }
 
     @Override

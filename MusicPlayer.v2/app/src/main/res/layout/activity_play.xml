@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".PlayActivity">
 
-
     <ImageView
         android:id="@+id/iv_play"
         android:layout_width="175dp"
@@ -90,6 +89,5 @@
         tools:layout_editor_absoluteX="236dp"
         tools:layout_editor_absoluteY="16dp"
         tools:ignore="MissingConstraints" />
-
 
 </android.support.constraint.ConstraintLayout>

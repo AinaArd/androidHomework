@@ -1,30 +1,39 @@
 package com.example.musicplayerv2;
 
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.content.SharedPreferences;
-import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ListView;
-import android.widget.MediaController;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements Callback, SharedPreferences.OnSharedPreferenceChangeListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        String currentTheme = sharedPref.getString("themes", "First");
+        int themeId ;
+        switch (currentTheme) {
+            case "first":
+                themeId = R.style.first;
+                break;
+            case "second":
+                themeId = R.style.second;
+                break;
+            case "third":
+                themeId = R.style.third;
+                break;
+            default:
+                themeId = R.style.default1;
+        }
         super.onCreate(savedInstanceState);
+        setTheme(themeId);
+
         setContentView(R.layout.activity_main);
         SongAdapter songAdapter = new SongAdapter(new AppListDiffCallback(), this);
         RecyclerView recyclerView = findViewById(R.id.rv_songs);
