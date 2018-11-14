@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="listArray">
-        <item>First</item>
-        <item>Second</item>
-        <item>Third</item>
+        <item>first</item>
+        <item>second</item>
+        <item>third</item>
     </string-array>
 
 </resources>

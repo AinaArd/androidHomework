@@ -14,26 +14,8 @@ public class MainActivity extends AppCompatActivity implements Callback, SharedP
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        String currentTheme = sharedPref.getString("themes", "First");
-        int themeId ;
-        switch (currentTheme) {
-            case "first":
-                themeId = R.style.first;
-                break;
-            case "second":
-                themeId = R.style.second;
-                break;
-            case "third":
-                themeId = R.style.third;
-                break;
-            default:
-                themeId = R.style.default1;
-        }
+        setTheme(ThemePicker.getTheme(getApplicationContext()));
         super.onCreate(savedInstanceState);
-        setTheme(themeId);
-
         setContentView(R.layout.activity_main);
         SongAdapter songAdapter = new SongAdapter(new AppListDiffCallback(), this);
         RecyclerView recyclerView = findViewById(R.id.rv_songs);
@@ -41,7 +23,6 @@ public class MainActivity extends AppCompatActivity implements Callback, SharedP
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(songAdapter);
         songAdapter.submitList(getSongs());
-
         SharedPreferences preferences =
                 PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         preferences.registerOnSharedPreferenceChangeListener(this);

@@ -37,9 +37,9 @@ public class PlayActivity extends AppCompatActivity implements Callback, SharedP
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(ThemePicker.getTheme(getApplicationContext()));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play);
-
         playPic = findViewById(R.id.iv_play);
         prev = findViewById(R.id.btn_prev);
         next = findViewById(R.id.btn_next);
