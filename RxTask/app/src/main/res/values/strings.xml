@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Toolbar</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="textview" />
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="homefragment">HomeFragment</string>
+    <string name="sort_in_alf">sort in alf</string>
+    <string name="sort_by_age">sort by age</string>
+    <string name="age">age</string>
+    <string name="alfabetic">alfabetic</string>
+    <string name="left">Left</string>
+    <string name="center">Center</string>
+    <string name="right">Right</string>
+</resources>
