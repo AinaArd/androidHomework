@@ -37,6 +37,8 @@ public class ListFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
+        data = new Data();
+        System.out.println(Arrays.asList(data.getUsers()));
         toolbar = view.findViewById(R.id.toolbar);
         progressBar = view.findViewById(R.id.progressBar);
         ((MainActivity) getActivity()).setSupportActionBar(toolbar);
@@ -45,10 +47,10 @@ public class ListFragment extends Fragment {
         usersRecycleView = view.findViewById(R.id.recycleView);
         usersRecycleView.setLayoutManager(new LinearLayoutManager(view.getContext()));
 
-        userAdapter.submitList(data.getUsers());
         diff = new UserListDiffCallback();
         userAdapter = new UserAdapter(diff);
         usersRecycleView.setAdapter(userAdapter);
+        userAdapter.submitList(data.getUsers());
         return view;
     }
 
