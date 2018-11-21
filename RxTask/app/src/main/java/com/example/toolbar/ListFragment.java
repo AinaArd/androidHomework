@@ -1,5 +1,6 @@
 package com.example.toolbar;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -17,10 +18,11 @@ import android.view.ViewGroup;
 
 import org.reactivestreams.Subscription;
 
+
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Observable;
 
 import io.reactivex.Flowable;
 import io.reactivex.schedulers.Schedulers;
@@ -38,7 +40,6 @@ public class ListFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list, container, false);
         data = new Data();
-        System.out.println(Arrays.asList(data.getUsers()));
         toolbar = view.findViewById(R.id.toolbar);
         progressBar = view.findViewById(R.id.progressBar);
         ((MainActivity) getActivity()).setSupportActionBar(toolbar);
@@ -76,19 +77,19 @@ public class ListFragment extends Fragment {
         return true;
     }
 
+    @SuppressLint("CheckResult")
     public void sortUsers(List<User> oldList, Comparator<User> comparator) {
         Flowable.fromIterable(oldList)
-                .subscribeOn(Schedulers.io())
-                .observeOn(Schedulers.io())
                 .take(8)
                 .sorted(comparator)
-                .map(user -> new User(user.getName(),
-                user.getDescription(), user.getAge()))
+                .map(user -> new User((user.getName() + user.getName().length()), user.getDescription(),user.getAge()))
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe(this::showLoading)
                 .toList()
                 .doAfterTerminate(this::hideLoading)
-                .doOnSuccess(newUsers -> userAdapter.submitList(newUsers))
-                .subscribe();
+                .doOnSuccess()
+                .subscribe(usersSorted -> userAdapter.submitList(usersSorted));
     }
 
     private void showLoading(Subscription subscription) {

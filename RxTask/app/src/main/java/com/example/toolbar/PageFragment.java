@@ -33,7 +33,7 @@ public class PageFragment extends Fragment {
                              Bundle savedInstanceState) {
         View result = inflater.inflate(R.layout.fragment_page, container, false);
         TextView pageHeader = result.findViewById(R.id.pager_title);
-        pageHeader.setText("Fragment " + (pageNumber + 1));
+        pageHeader.setText("Fragment " + pageNumber);
         return result;
     }
 }
