@@ -28,7 +28,6 @@
                 android:paddingStart="61dp"
                 android:paddingTop="32dp">
 
-
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
@@ -67,7 +66,6 @@
                         android:layout_height="wrap_content"
                         android:padding="8dp"
                         app:srcCompat="@drawable/cup" />
-
                 </LinearLayout>
 
                 <TextView
@@ -75,7 +73,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
-                    android:text="cups:"
+                    android:text="@string/cups"
                     android:textAllCaps="true"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -97,19 +95,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
-                        android:text="x4"
+                        android:text="@string/x4"
                         android:textAllCaps="true"
                         android:textColor="#A79D9B"
                         android:textSize="20sp" />
                 </LinearLayout>
-
 
                 <TextView
                     android:id="@+id/textView5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingBottom="5dp"
-                    android:text="total:"
+                    android:text="@string/total"
                     android:textAllCaps="true"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -118,23 +115,17 @@
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="$38"
+                    android:text="@string/_38"
                     android:textAllCaps="true"
                     android:textColor="#A79D9B"
                     android:textSize="20sp" />
-
-
             </LinearLayout>
 
             <ImageView
                 android:id="@+id/cup_iv"
                 android:layout_width="185dp"
                 android:layout_height="311dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
                 app:srcCompat="@drawable/bitmap" />
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -160,8 +151,7 @@
                 android:layout_width="234dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
-                android:text="Our Latte Macchiato and classic Latte (also called a Caffè Latte) have the same two ingredients: milk and espresso. But the craft of our baristas is what makes each drink unique.
-Explore the differences."
+                android:text="@string/our_latte_macchiato_and_classic_latte_also_called_a_caff_latte_have_the_same_two_ingredients_milk_and_espresso_but_the_craft_of_our_baristas_is_what_makes_each_drink_unique_explore_the_differences"
                 android:textColor="#A79D9B"
                 android:textSize="12sp" />
 
@@ -170,7 +160,7 @@ Explore the differences."
                 android:layout_height="39sp"
                 android:layout_gravity="center"
                 android:background="#63A8A6"
-                android:text="Add to cart"
+                android:text="@string/add_to_cart"
                 android:textAllCaps="true"
                 android:textColor="#ffffff"
                 android:textSize="12sp" />

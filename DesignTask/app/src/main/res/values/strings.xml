@@ -5,4 +5,27 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="size">size:</string>
+    <string name="cups">cups:</string>
+    <string name="x4">x4</string>
+    <string name="total">total:</string>
+    <string name="_38">$38</string>
+    <string name="our_latte_macchiato_and_classic_latte_also_called_a_caff_latte_have_the_same_two_ingredients_milk_and_espresso_but_the_craft_of_our_baristas_is_what_makes_each_drink_unique_explore_the_differences">Our Latte Macchiato and classic Latte (also called a Caffè Latte) have the same two ingredients: milk and espresso. But the craft of our baristas is what makes each drink unique. Explore the differences.</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="our_coffee">Our coffee</string>
+    <string name="the_craft_of_our_baristas_is_what_makes_each_coffee_unique_explore_the_differences">The craft of our baristas is what makes each coffee unique. Explore the differences.</string>
+    <string name="mocha">Mocha</string>
+    <string name="macchiato">Macchiato</string>
+    <string name="ice_coffee">Ice coffee</string>
+    <string name="espresso">Espresso</string>
+    <string name="latte_macchiato">Latte Macchiato</string>
+    <string name="open_today_10_00am_5_30pm">Open today 10:00am - 5:30pm</string>
+    <string name="_151_3rd_st_san_francisco_ca_94103">151 3rd St San Francisco, CA 94103</string>
+    <string name="plan_your_visit">Plan Your Visit</string>
+    <string name="floor_5">floor 5</string>
+    <string name="april_15_september_20">april 15 - september 20</string>
+    <string name="newword">new</string>
+    <string name="old_and">old and</string>
+    <string name="masters">masters</string>
+    <string name="exhibition">exhibition</string>
 </resources>

@@ -24,17 +24,17 @@
                 android:layout_height="match_parent"
                 android:paddingStart="38dp"
                 android:paddingTop="38dp"
-                android:text="Our coffee"
+                android:text="@string/our_coffee"
                 android:textColor="#A56905"
                 android:textSize="48sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="RtlSymmetry" />
 
             <ImageView
                 android:id="@+id/iv_cup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:srcCompat="@drawable/oval" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -42,18 +42,17 @@
             android:layout_height="0dp"
             android:layout_weight="2"
             android:orientation="vertical"
-            android:paddingLeft="4sp"
-            android:paddingBottom="12dp">
+            android:paddingBottom="12dp"
+            android:paddingStart="4sp">
 
             <TextView
                 android:layout_width="234sp"
                 android:layout_height="63sp"
-                android:letterSpacing="-0.3px"
                 android:paddingStart="38sp"
-                android:text="The craft of our baristas is what makes each coffee unique.
-Explore the differences."
+                android:text="@string/the_craft_of_our_baristas_is_what_makes_each_coffee_unique_explore_the_differences"
                 android:textColor="#A79D9B"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                tools:ignore="RtlSymmetry" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -73,10 +72,10 @@ Explore the differences."
                     android:layout_height="match_parent"
                     android:paddingStart="24sp"
                     android:paddingTop="12sp"
-                    android:text="Mocha"
+                    android:text="@string/mocha"
                     android:textColor="#A79D9B"
-                    android:textSize="20sp" />
-
+                    android:textSize="20sp"
+                    tools:ignore="RtlSymmetry" />
             </LinearLayout>
 
             <LinearLayout
@@ -96,9 +95,10 @@ Explore the differences."
                     android:layout_height="match_parent"
                     android:paddingStart="24sp"
                     android:paddingTop="12sp"
-                    android:text="Macchiato"
+                    android:text="@string/macchiato"
                     android:textColor="#A79D9B"
-                    android:textSize="20sp" />
+                    android:textSize="20sp"
+                    tools:ignore="RtlSymmetry" />
             </LinearLayout>
 
             <LinearLayout
@@ -118,7 +118,7 @@ Explore the differences."
                     android:layout_height="match_parent"
                     android:paddingStart="18sp"
                     android:paddingTop="12sp"
-                    android:text="Ice coffee"
+                    android:text="@string/ice_coffee"
                     android:textColor="#A79D9B"
                     android:textSize="20sp"
                     tools:ignore="RtlSymmetry" />
@@ -133,18 +133,18 @@ Explore the differences."
                     android:id="@+id/iv_cof4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/bitmap4"
-                    android:layout_gravity="center"/>
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/bitmap4" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:paddingStart="24sp"
                     android:paddingTop="12sp"
-                    android:text="Espresso"
+                    android:text="@string/espresso"
                     android:textColor="#A79D9B"
-                    android:textSize="20sp" />
-
+                    android:textSize="20sp"
+                    tools:ignore="RtlSymmetry" />
             </LinearLayout>
 
             <LinearLayout
@@ -162,15 +162,12 @@ Explore the differences."
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:paddingLeft="24sp"
+                    android:paddingStart="24sp"
                     android:paddingTop="12sp"
-                    android:text="Latte Macchiato"
+                    android:text="@string/latte_macchiato"
                     android:textColor="#A79D9B"
                     android:textSize="20sp" />
-
             </LinearLayout>
-
         </LinearLayout>
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>

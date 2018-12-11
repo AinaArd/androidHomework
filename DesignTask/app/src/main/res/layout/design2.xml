@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -25,22 +26,23 @@
             android:layout_weight="4"
             android:orientation="vertical"
             android:paddingStart="12sp"
-            android:paddingTop="10sp">
+            android:paddingTop="10sp"
+            tools:ignore="RtlSymmetry">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="exhibition"
+                android:text="@string/exhibition"
                 android:textAllCaps="true"
                 android:textColor="#979797"
                 android:textSize="10sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:ignore="SmallSp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/11952"
-                android:text="masters"
+                android:text="@string/masters"
                 android:textAllCaps="true"
                 android:textColor="#000000"
                 android:textSize="24sp"
@@ -49,8 +51,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/11952"
-                android:text="old and"
+                android:text="@string/old_and"
                 android:textAllCaps="true"
                 android:textColor="#000000"
                 android:textSize="24sp"
@@ -59,8 +60,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/11952"
-                android:text="new"
+                android:text="@string/newword"
                 android:textAllCaps="true"
                 android:textColor="#000000"
                 android:textSize="24sp"
@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="6sp"
-                android:text="april 15 - september 20"
+                android:text="@string/april_15_september_20"
                 android:textAllCaps="true"
                 android:textColor="#FF473A"
                 android:textSize="18sp"
@@ -80,22 +80,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="6sp"
-                android:text="floor 5"
+                android:text="@string/floor_5"
                 android:textAllCaps="true"
                 android:textColor="#979797"
                 android:textSize="10sp"
-                android:textStyle="bold" />
-
+                android:textStyle="bold"
+                tools:ignore="SmallSp" />
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingTop="15sp"
             android:paddingBottom="15sp"
-            android:paddingStart="65dp">
+            android:paddingStart="65dp"
+            android:paddingTop="15sp"
+            tools:ignore="RtlSymmetry">
 
             <Button
                 android:layout_width="250sp"
@@ -104,12 +104,10 @@
                 android:background="#FF473A"
                 android:elevation="4sp"
                 android:padding="8sp"
-                android:text="Plan Your Visit"
+                android:text="@string/plan_your_visit"
                 android:textAllCaps="false"
                 android:textColor="#ffffff" />
-
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -118,52 +116,49 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="horizontal"
                 android:padding="10sp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/union"/>
+                    android:src="@drawable/union" />
 
                 <TextView
-                    android:paddingStart="6sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="151 3rd St San Francisco, CA 94103"
+                    android:paddingStart="6sp"
+                    android:text="@string/_151_3rd_st_san_francisco_ca_94103"
                     android:textColor="#FF473A"
-                    android:textSize="15sp"/>
-
+                    android:textSize="15sp"
+                    tools:ignore="RtlSymmetry" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="horizontal"
                 android:padding="10sp">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ellipse"/>
+                    android:src="@drawable/ellipse" />
 
                 <TextView
-                    android:paddingStart="6sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Open today 10:00am - 5:30pm"
+                    android:paddingStart="6sp"
+                    android:text="@string/open_today_10_00am_5_30pm"
                     android:textColor="#FF473A"
-                    android:textSize="15sp"/>
-
+                    android:textSize="15sp"
+                    tools:ignore="RtlSymmetry" />
             </LinearLayout>
-
         </LinearLayout>
-
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>
